@@ -5,11 +5,11 @@ import GuestComponent from "./GuestComponent";
 function App() {
 	const [isLogined, setIsLogined] = useState(false);
 	return (
-		<div className="app-container">
+		<div className="app-container ">
 			<div className="app-background"></div>
 			<div className="nav-bar">
 				<button
-					className={`toggle-btn ${isLogined ? "logout" : "login"}`}
+					className={`toggle-btn ${isLogined ? "logout" : "login"} `}
 					onClick={() => setIsLogined(!isLogined)}>
 					{isLogined ? "logout" : "login"}
 				</button>
