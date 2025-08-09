@@ -3,14 +3,20 @@ import { useEffect, useRef, useState } from "react";
 function App() {
 	const [inputValue1, setInputValue1] = useState("");
 	const [inputValue2, setInputValue2] = useState("");
-	const inputRef1 = useRef(null);
-	const inputRef2 = useRef(null);
+	const inputsRef = [useRef(null), useRef(null)]
+	const [now, setNow ]= useState("");
 	useEffect(() => {
-		inputRef1.current.focus();
+		inputsRef[0].current.focus();
+		const updateTime = ()=>{
+			setNow(new Date().toLocaleTimeString());
+		}
+		updateTime();
+		const timer = setInterval(updateTime,1000);
+		return ()=> clearInterval(timer);
 	}, []);
 	const handleKeyDown = (e) =>{
 		if (e.key === "Enter") {
-			inputRef2.current.focus();
+			inputsRef[1].current.focus();
 		}
 	}
 
@@ -18,6 +24,8 @@ function App() {
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-teal-400 to-indigo-600">
 			<div className="text-center p-8 rounded-lg shadow-2xl space-y-6 bg-white w-full max-w-md">
 				<h2 className="text-gray-700 font-semibold text-3xl"> فرم ورودی</h2>
+				<p className="text-gray-700 font-semibold ">{now} </p>
+				
 
 				<div className="relative" >
 					<input type="text " className="w-full  px-4 py-3 text-sm text-center border-2 border-teal-300 focus:ring-4 focus:ring-teal-200
@@ -25,14 +33,14 @@ function App() {
 						placeholder="متن خود را وارد کنید..."
 						value={inputValue1}
 						onChange={(e) => setInputValue1(e.target.value)}
-						ref={inputRef1} 
+						ref={inputsRef[0]} 
 						onKeyDown={handleKeyDown}/>
 					<input type="text " className="w-full mt-4 px-4 py-3 text-sm text-center border-2 border-teal-300 focus:ring-4 focus:ring-teal-200
 					focus:border-teal-500 outline-none transition duration-300 bg-gray-50 rounded "
 						placeholder="متن خود را وارد کنید..."
 						value={inputValue2}
 						onChange={(e) => setInputValue2(e.target.value)}
-						ref={inputRef2} />
+						ref={inputsRef[1]} />
 				</div>
 				{inputValue1 && (
 					<div className="mt-4 p-4 bg-teal-50 rounded border border-teal-300">
