@@ -8,7 +8,7 @@ const Posts = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">پست‌های اخیر</h2>
+      <h2 className="text-2xl font-bold text-gray-800 my-6 text-center">پست‌های اخیر</h2>
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         {data.map((post) => (
           <div key={post.id} className="bg-white border border-gray-200 rounded shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
