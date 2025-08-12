@@ -1,6 +1,6 @@
 import Users from './Users';
 import Posts from './Posts';
-import { Link, Route, Routes } from 'react-router';
+import { Link, NavLink, Route, Routes } from 'react-router';
 
 const App = () => {
 	return (
@@ -10,18 +10,22 @@ const App = () => {
 					<h1 className="text-3xl font-bold text-center text-indigo-800 mb-6">React App</h1>
 
 					<div className="flex justify-center mb-8 gap-4">
-						<Link
+						<NavLink
 							to="/users"
-							className="px-6 py-3 rounded font-medium transition-all duration-200 "
+							className={({ isActive }) => ` rounded p-2 ${isActive 
+								? 'bg-indigo-600 text-white ' 
+								: 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
 						>
 							کاربران
-						</Link>
-						<Link
+						</NavLink>
+						<NavLink
 							to="/posts"
-							className="px-6 py-3 rounded font-medium transition-all duration-200 "
+							className={({ isActive }) => ` rounded p-2 ${isActive 
+								? 'bg-indigo-600 text-white ' 
+								: 'bg-gray-100 hover:bg-gray-200 text-gray-700'}`}
 						>
 							پست‌ها
-						</Link>
+						</NavLink>
 					</div>
 					<div className="bg-gray-50 rounded p-4">
 						<Routes>
