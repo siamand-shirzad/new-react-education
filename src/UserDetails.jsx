@@ -1,16 +1,25 @@
-import { Link } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 
 const UserDetails = () => {
+  // const params = useParams()
+  const user =useLocation().state
+  const initial = user.name 
+  .split(' ')
+  .map(part=> part[0])
+  .join('')
+  .toUpperCase();
+  
+  
   return (
     <div className="fixed w-full h-screen left-0 top-0 z-20 bg-black/50 flex justify-center items-center">
       <div className="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
         <div className="flex items-center mb-6">
           <div className="w-20 h-20 bg-indigo-500 rounded-full flex items-center justify-center overflow-hidden mr-4">
-            <span className="text-white text-3xl font-bold">QB</span>
+            <span className="text-white text-3xl font-bold">{initial}</span>
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">قاسم بساکی</h2>
-            <p className="text-gray-600">توسعه دهنده فرانت اند</p>
+            <h2 className="text-2xl font-bold text-gray-800"> {user.name}</h2>
+            <p className="text-gray-600">{user.company.name}</p>
           </div>
         </div>
 
@@ -20,20 +29,20 @@ const UserDetails = () => {
           </h3>
           <div className="grid grid-cols-1 gap-3">
             <div className="flex items-center">
-              <span className="w-24 text-gray-600">نام:</span>
-              <span className="font-medium">قاسم</span>
+              <span className="w-24 text-gray-600">نام کاربری:</span>
+              <span className="font-medium">{user.username}</span>
             </div>
             <div className="flex items-center">
-              <span className="w-24 text-gray-600">نام خانوادگی:</span>
-              <span className="font-medium">بساکی</span>
+              <span className="w-24 text-gray-600">نام کمپانی:</span>
+              <span className="font-medium">{user.company.name}</span>
             </div>
             <div className="flex items-center">
               <span className="w-24 text-gray-600">ایمیل:</span>
-              <span className="font-medium">qasem.basski@example.com</span>
+              <span className="font-medium">{user.email}</span>
             </div>
             <div className="flex items-center">
               <span className="w-24 text-gray-600">تلفن:</span>
-              <span className="font-medium">09121111111</span>
+              <span className="font-medium">{user.phone}</span>
             </div>
           </div>
         </div>
