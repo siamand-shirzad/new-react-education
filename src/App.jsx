@@ -1,10 +1,12 @@
 import Users from './Users';
 import Posts from './Posts';
-import { Link, NavLink, Route, Routes } from 'react-router';
+import { Link, Navigate, NavLink, Route, Routes, useNavigate } from 'react-router';
 import AddUser from './AddUser';
 import UserDetails from './UserDetails';
+import NotFound from './assets/NotFound';
 
 const App = () => {
+
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
 			<div className="max-w-4xl mx-auto bg-white rounded shadow-md overflow-hidden">
@@ -49,6 +51,9 @@ const App = () => {
 								<Route path="user-details/:userId" element={<UserDetails />} />
 							</Route>
 							<Route path="/posts" element={<Posts />} />
+							<Route path="*" element={<NotFound />} />
+							<Route path="/" element={<Navigate to="/Posts" />} />
+
 						</Routes>
 					</div>
 				</div>
