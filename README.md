@@ -1,12 +1,14 @@
-# React + Vite
+# React Fundamentals
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Step-by-step React practice, one topic per commit: `useEffect`, `useRef`, timers, custom hooks, Tailwind setup, React Router (`Link`, `NavLink`, nested and dynamic routes, `useLocation`, `useNavigate`) and a 404 page, around a small users/posts app.
 
-Currently, two official plugins are available:
+تمرین مرحله‌به‌مرحلهٔ مفاهیم پایهٔ React و React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
+React · React Router · Tailwind CSS
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run
+```bash
+npm install
+npm run dev
+```
